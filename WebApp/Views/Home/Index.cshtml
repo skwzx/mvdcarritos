@@ -1,36 +1,38 @@
 ﻿@model IEnumerable<ClassLibrary.Carro>
 
-@{
-    ViewData["Title"] = "Home Page";
-}
+    @{
+        ViewData["Title"] = "Home Page";
+    }
 
-<section class="justify-content-center align-items-center text-center">
-    <p class="col-10 col-md-8">En honor de los tradicionales 'carritos' de Montevideo. Podes puntuarlos, escribir reviews sobre ellos y sugerirnos carritos. Nosotros nos ocupuamos de  mostrarles sus favoritos en base a su puntuacion.</p>
-</section>
+    <section class="justify-content-center align-items-center text-center">
+        <p class="col-10 col-md-8">En honor de los tradicionales 'carritos' de Montevideo. Podes puntuarlos, escribir reviews sobre ellos y sugerirnos carritos. Nosotros nos ocupuamos de  mostrarles sus favoritos en base a su puntuacion.</p>
+    </section>
 
 
-<section class="row justify-content-center">
-    <div id="title" class="col-6 text-center align-items-center">
-        <h2>LOS 5 MEJORES 'CARRITOS' DE MONTEVIDEO</h2>
-        <p>Basados en sus ratings!</p>
-    </div>
-
-    @foreach (var c in Model)
-    {
-<article class="col-10">
-    <h3><span>@c.top</span>: @c.nombre</h3>
-    <div class="row justify-content-around mt-3">
-        <figure class="col-md-5"><img class="img-fluid" src="@c.img" alt=""></figure>
-        <aside class="col-md-5">
-            <h4>Horarios: </h4><p>@c.horarios</p>
-            <h4>Ubicacion: </h4><p>@c.ubicacion</p>
-        </aside>
-        <div id="acciones" class="col-12 row justify-content-around">
-            <div id="puntaje" class="col-3 p-2">logo</div>
-            <div id="puntuar" class="col- p-2">logo</div>
-            <a id="masInfo" class="col-3 btn btn-danger" href="">Mas informacion</a>
+    <section class="row justify-content-center">
+        <div id="title" class="col-6 text-center align-items-center">
+            <h2>LOS 5 MEJORES 'CARRITOS' DE MONTEVIDEO</h2>
+            <p>Basados en sus ratings!</p>
         </div>
-    </div>
-</article>}
 
-</section>
+        @foreach (var c in Model)
+        {
+            <article class="col-10">
+                <h3><span>@c.top</span>: @c.nombre</h3>
+                <div class="row justify-content-around mt-3">
+                    <figure class="col-md-5"><img class="img-fluid" src="@c.img" alt=""></figure>
+                    <aside class="col-md-5">
+                        <h4>Horarios: </h4><p>@c.horarios</p>
+                        <h4>Ubicacion: </h4><p>@c.ubicacion</p>
+                    </aside>
+                    <div id="acciones" class="col-12 row justify-content-around">
+                        <div id="puntaje" class="col-3 p-2">logo</div>
+                        <div id="puntuar" class="col- p-2">logo</div>
+                        <a id="masInfo" class="col-3 btn btn-danger" href="">Mas informacion</a>
+                    </div>
+                </div>
+            </article>}
+
+    </section>
+
+    @ViewBag.msg
