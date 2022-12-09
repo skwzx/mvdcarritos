@@ -5,26 +5,22 @@ namespace ClassLibrary
 {
     public class Carro : IComparable<Carro>
     {
-        public int id { get; set; }
-        private static int ultimoId { get; set; } = 1;
+        public string id { get; set; }
         public string nombre { get; set; }
         public string img { get; set; }
         public string horarios { get; set; }
         public string ubicacion { get; set; }
-        public double rating { get; set; }
-        public int top { get; set; }
+        public string rating { get; set; }
+        public string top { get; set; }
 
 
         public Carro()
         {
-            id = ultimoId;
-            ultimoId++;
         }
 
-        public Carro(string nombre, string img, string horarios, string ubicacion, double rating ,int top)
+        public Carro(string id, string nombre, string img, string horarios, string ubicacion, string rating ,string top)
         {
-            id = ultimoId;
-            ultimoId++;
+            this.id = id;
             this.nombre = nombre;
             this.img = img;
             this.horarios = horarios;
@@ -32,7 +28,7 @@ namespace ClassLibrary
             this.top = top;
         }
 
-        public int getTop()
+        public string getTop()
         {
             return this.top;
         }

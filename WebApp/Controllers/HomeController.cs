@@ -17,24 +17,41 @@ namespace WebApp.Controllers
         private readonly ILogger<HomeController> _logger;
 
         private readonly IConfiguration configuration;
+
+        SqlCommand com = new SqlCommand();
+        SqlDataReader dr;
+        SqlConnection con = new SqlConnection();
+
       
 
-        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
+        public HomeController(ILogger<HomeController> logger)
         {
-            _logger = logger;
-            configuration = configuration;
+            _logger = logger;       
+            con.ConnectionString = "Data Source =.\\sqlexpress; Initial Catalog = myCarro; Integrated Security = True";
         }
 
         Sistema s = Sistema.Instancia;
         public IActionResult Index()
         {
-            string connectionstring = "Data Source =.\\sqlexpress; Initial Catalog = myCarro; Integrated Security = True";
-            SqlConnection connection = new SqlConnection(connectionstring);
-            connection.Open();
-            SqlCommand com = new SqlCommand("Select count(ID) from Carro", connection);
-            int str = (int)com.ExecuteScalar();
-            ViewBag.msg = str;
-            connection.Close();
+            
+            con.Open();
+            com.Connection = con;
+            com.CommandText = "SELECT ID, Nombre, Img, Horarios, Ubicacion, Rating, CTop";
+            dr= com.ExecuteReader();
+            while (dr.Read())
+            {
+                s.altaCarro(new Carro()
+                {
+                    id =dr["ID"].ToString(),
+                     nombre = dr["Nombre"].ToString(),
+                     img = dr["Img"].ToString(),
+                     horarios = dr["Horarios"].ToString(),
+                     ubicacion = dr["Ubicacion"].ToString(),
+                     rating = dr["Rating"].ToString(),
+                     top = dr["CTop"].ToString()
+
+                });
+            }
 
             List<Carro> carros = s.top10();
             return View(carros);
