@@ -60,13 +60,10 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
   background-color: black;
@@ -98,12 +95,7 @@ article {
 }
 
 main {
-    position: absolute;
-    width: 100%;
-    top: 40px;
-    bottom: 20px;
     background-image: url(../img/bgFood.jpg);
-    background-repeat: repeat;
     /*<a href="https://www.freepik.com/free-vector/linear-flat-fast-food-icons-seamless-pattern_3330537.htm#page=2&query=fast%20food%20pattern&position=10&from_view=keyword">Image by vextok</a> on Freepik*/
 }
 
@@ -166,7 +158,7 @@ article figure img {
 .get-in-touch {
     max-width: 800px;
     max-height: 800px;
-    margin: 100px 30px auto 30px;
+    margin: 150px 30px auto 30px;
     position: relative;
     background-color: white;
     padding: 40px;
