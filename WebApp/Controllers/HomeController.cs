@@ -36,19 +36,19 @@ namespace WebApp.Controllers
             
             con.Open();
             com.Connection = con;
-            com.CommandText = "SELECT ID, Nombre, Img, Horarios, Ubicacion, Rating, CTop";
+            com.CommandText = "SELECT TOP (1000) [ID],[Nombre],[Img],[Horarios],[Ubicacion],[Rating],[CTop] FROM[myCarro].[dbo].[Carro]";
             dr= com.ExecuteReader();
             while (dr.Read())
             {
                 s.altaCarro(new Carro()
                 {
-                    id =dr["ID"].ToString(),
+                     id = Convert.ToInt32(dr["ID"]),
                      nombre = dr["Nombre"].ToString(),
                      img = dr["Img"].ToString(),
                      horarios = dr["Horarios"].ToString(),
                      ubicacion = dr["Ubicacion"].ToString(),
-                     rating = dr["Rating"].ToString(),
-                     top = dr["CTop"].ToString()
+                     rating =dr["Rating"].ToString(),
+                     top = Convert.ToInt32( dr["CTop"])
 
                 });
             }

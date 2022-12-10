@@ -13,3 +13,5 @@ INSERT INTO Carro(Nombre, Img, Horarios, Ubicacion, Rating, CTop) VALUES
 ('El Italiano', 'img/maccarro.jpg', '24/7', 'centro', 5.0, 3),
 ('MCCarro', 'img/maccarro.jpg', '24/7', 'centro', 5.0, 4);
 
+
+select * from Carro

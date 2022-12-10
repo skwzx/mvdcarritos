@@ -60,8 +60,11 @@ namespace ClassLibrary
             List<Carro> listRet = new List<Carro>();
 
             foreach(Carro c in losCarros)
-            {               
-                    listRet.Add(c);         
+            {
+                if (c.getTop() <= 5)
+                {
+                    listRet.Add(c);
+                }
             }
 
             listRet.Sort();
