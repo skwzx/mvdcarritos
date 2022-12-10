@@ -15,9 +15,6 @@ namespace WebApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        private readonly IConfiguration configuration;
-
         SqlCommand com = new SqlCommand();
         SqlDataReader dr;
         SqlConnection con = new SqlConnection();
@@ -47,8 +44,8 @@ namespace WebApp.Controllers
                      img = dr["Img"].ToString(),
                      horarios = dr["Horarios"].ToString(),
                      ubicacion = dr["Ubicacion"].ToString(),
-                     rating =dr["Rating"].ToString(),
-                     top = Convert.ToInt32( dr["CTop"])
+                     rating =Convert.ToDouble(dr["Rating"]),
+                     top = Convert.ToInt32(dr["CTop"])
 
                 });
             }

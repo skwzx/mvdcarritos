@@ -10,7 +10,7 @@ namespace ClassLibrary
         public string img { get; set; }
         public string horarios { get; set; }
         public string ubicacion { get; set; }
-        public string rating { get; set; }
+        public double rating { get; set; }
         public int top { get; set; }
 
 
@@ -18,7 +18,7 @@ namespace ClassLibrary
         {
         }
 
-        public Carro(int id, string nombre, string img, string horarios, string ubicacion, string rating ,int top)
+        public Carro(int id, string nombre, string img, string horarios, string ubicacion, double rating ,int top)
         {
             this.id = id;
             this.nombre = nombre;

@@ -38,20 +38,13 @@ namespace ClassLibrary
 
         public void altaCarro(Carro c1)
         {       
-                try
-                {
-                    if (losCarros.Contains(c1))
-                    {
-                        throw new Exception("El Carro ya se encuentra registrado");
-                    }
-                    losCarros.Add(c1);
+                
+            if (!losCarros.Contains(c1))
+            {
 
-                }
-
-                catch (Exception e)
-                {
-                    throw new Exception(e.Message);
-                }          
+               losCarros.Add(c1);
+            }
+              
         }
 
 
